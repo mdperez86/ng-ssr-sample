@@ -35,6 +35,9 @@ app.set('view engine', 'html');
 app.set('views', join(DIST_FOLDER, 'client'));
 
 // TODO: implement data requests securely
+app.get('/api/server-date', (req, res) => {
+  res.send(new Date());
+});
 app.get('/api/*', (req, res) => {
   res.status(404).send('data requests are not supported');
 });

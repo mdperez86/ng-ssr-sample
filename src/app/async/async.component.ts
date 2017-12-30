@@ -9,7 +9,7 @@ import { ApiService } from './services/api.service';
 })
 export class AsyncComponent implements OnInit {
 
-  serverDate: Date;
+  serverDate: any;
 
   constructor(private apiService: ApiService) { }
 
