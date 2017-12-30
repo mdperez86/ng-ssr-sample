@@ -1,11 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule, PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
+import { StaticModule } from './static/static.module';
 
 import { AppComponent } from './app.component';
-import { StaticModule } from './static/static.module';
 
 @NgModule({
   declarations: [
@@ -13,6 +13,7 @@ import { StaticModule } from './static/static.module';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserTransferStateModule,
     AppRoutingModule,
     StaticModule
   ],
