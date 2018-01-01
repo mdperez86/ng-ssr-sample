@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-ssr-universal' }),
+    BrowserModule.withServerTransition({ appId: 'ng-ssr-sample' }),
     BrowserTransferStateModule,
     HttpClientModule,
     AppRoutingModule,
