@@ -1,6 +1,6 @@
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule, PLATFORM_ID, APP_ID, Inject } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformServer } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule.withServerTransition({ appId: 'ng-ssr-universal' }),
     BrowserTransferStateModule,
     HttpClientModule,
     AppRoutingModule,
@@ -27,7 +27,7 @@ export class AppModule {
     @Inject(PLATFORM_ID) private platformId: Object,
     @Inject(APP_ID) private appId: string
   ) {
-    const platform = isPlatformBrowser(platformId) ? 'on the server' : 'in the browser';
+    const platform = isPlatformServer(platformId) ? 'on the server' : 'in the browser';
     console.log(`Running ${platform} with appId=${appId}`);
   }
 }
