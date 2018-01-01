@@ -1,4 +1,4 @@
-import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject, Injectable } from '@angular/core';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
 import { isPlatformServer } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 
 const SERVER_DATE = makeStateKey<Date>('serverDate');
 
+@Injectable()
 export class ApiService {
   private isServer: boolean;
   private serverDateUrl = '/api/server-date';
