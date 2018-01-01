@@ -1,16 +1,20 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { RouterLinkStubDirective, RouterOutletStubComponent } from '../testing/router-stubs';
 
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
   let compiled: any;
+  let linkDes: any[];
+  let links: RouterLinkStubDirective[];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [AppComponent],
+      declarations: [AppComponent, RouterLinkStubDirective, RouterOutletStubComponent],
     }).compileComponents();
   }));
 
@@ -18,6 +22,8 @@ describe('AppComponent', () => {
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
     compiled = fixture.debugElement.nativeElement;
+    linkDes = fixture.debugElement.queryAll(By.directive(RouterLinkStubDirective));
+    links = linkDes.map(de => de.injector.get(RouterLinkStubDirective));
     fixture.detectChanges();
   });
 
@@ -46,5 +52,11 @@ describe('AppComponent', () => {
   it('should render async link element', async(() => {
     expect(compiled.querySelector('nav a:last-child').textContent)
       .toContain('Async');
+  }));
+
+  it('should get RouterLinks from template', async(() => {
+    expect(links.length).toBe(2, 'should have 2 links');
+    expect(links[0].routerLink).toBe('/', '1st link should go to Static Component');
+    expect(links[1].routerLink).toBe('/async', '2nd link should go to Async Component');
   }));
 });
