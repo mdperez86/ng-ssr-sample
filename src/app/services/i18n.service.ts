@@ -2,9 +2,6 @@ import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { makeStateKey, TransferState } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { isPlatformServer } from '@angular/common';
-import { Observable } from 'rxjs/Observable';
-import { Subscriber } from 'rxjs/Subscriber';
-import 'rxjs/add/observable/of';
 
 const I18N = makeStateKey<any>('i18n');
 

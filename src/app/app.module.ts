@@ -8,10 +8,12 @@ import { StaticModule } from './static/static.module';
 
 import { AppComponent } from './app.component';
 import { I18nService } from './services/i18n.service';
+import { I18nPipe } from './pipes/i18n.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    I18nPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-ssr-sample' }),
