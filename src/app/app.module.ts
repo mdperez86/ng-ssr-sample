@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { StaticModule } from './static/static.module';
 
 import { AppComponent } from './app.component';
+import { I18nService } from './services/i18n.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     StaticModule
   ],
-  providers: [],
+  providers: [I18nService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

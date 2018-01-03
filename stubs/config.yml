@@ -1,0 +1,7 @@
+-  request:
+      url: ^/api/i18n$
+   response:
+    - status: 200
+      headers:
+         content-type: application/json
+      file: i18n.json

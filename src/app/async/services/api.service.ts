@@ -25,12 +25,12 @@ export class ApiService {
     if (this.ts.hasKey(SERVER_DATE)) {
       const serverDate = this.ts.get<Date>(SERVER_DATE, null);
       return Observable.of(new Date(serverDate));
-    } else if (this.isServer) {
+    }
+    if (this.isServer) {
       const now = new Date();
       this.ts.set(SERVER_DATE, now);
       return Observable.of(now);
-    } else {
-      return this.http.get<Date>(this.serverDateUrl).map(date => new Date(date));
     }
+    return this.http.get<Date>(this.serverDateUrl).map(date => new Date(date));
   }
 }
