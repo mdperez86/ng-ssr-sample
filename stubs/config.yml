@@ -1,7 +1,9 @@
 -  request:
       url: ^/api/i18n$
+      query:
+         lang: "(.+)"
    response:
     - status: 200
       headers:
          content-type: application/json
-      file: i18n.json
+      file: i18n-<% query.lang[0] %>.json
