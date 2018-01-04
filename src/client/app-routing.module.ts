@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'async',
-    loadChildren: 'app/async/async.module#AsyncModule'
+    loadChildren: './async/async.module#AsyncModule'
   }
 ];
 

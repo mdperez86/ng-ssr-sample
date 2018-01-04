@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "ng-ssr-universal"
+    "name": "ng-ssr-sample"
   },
   "apps": [
     {
@@ -12,10 +12,10 @@
         "favicon.ico"
       ],
       "index": "index.html",
-      "main": "main.ts",
+      "main": "main.client.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
-      "tsconfig": "tsconfig.app.json",
+      "tsconfig": "tsconfig.client.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [

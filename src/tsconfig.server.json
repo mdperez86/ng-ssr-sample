@@ -7,11 +7,12 @@
     "types": []
   },
   "exclude": [
+    "server/server.ts",
     "test.ts",
     "**/*.spec.ts",
     "testing/*.ts"
   ],
   "angularCompilerOptions": {
-    "entryModule": "app/app.server.module#AppServerModule"
+    "entryModule": "server/app.server.module#AppServerModule"
   }
 }

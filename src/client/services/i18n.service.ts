@@ -28,7 +28,7 @@ export class I18nService {
   }
 
   get(key: string): string {
-    const i18n = this.ts.get<any>(I18N, null);
+    const i18n = this.ts.get(I18N, null);
     return i18n && i18n.hasOwnProperty(key) ? i18n[key] : key;
   }
 }

@@ -17,12 +17,14 @@ const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist');
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/main.bundle');
+const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('../../dist/server/main.bundle');
 
 // Express Engine
 import { ngExpressEngine } from '@nguniversal/express-engine';
 // Import module map for lazy loading
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
+
+import * as ejs from 'ejs';
 
 app.engine('html', ngExpressEngine({
   bootstrap: AppServerModuleNgFactory,
@@ -30,6 +32,8 @@ app.engine('html', ngExpressEngine({
     provideModuleMap(LAZY_MODULE_MAP)
   ]
 }));
+
+// app.engine('html', ejs.__express);
 
 app.set('view engine', 'html');
 app.set('views', join(DIST_FOLDER, 'client'));
@@ -46,8 +50,22 @@ app.get('/api/*', (req, res) => {
 app.get('*.*', express.static(join(DIST_FOLDER, 'client')));
 
 // All regular routes use the Universal engine
-app.get('*', (req, res) => {
-  res.render(join(DIST_FOLDER, 'client', 'index.html'), { req });
+app.get('/', (req, res) => {
+  res.redirect('/en-us');
+});
+
+app.get('/:lang*?', (req, res) => {
+  res.render(join(DIST_FOLDER, 'client', 'index.html'), {
+    req,
+    res,
+    providers: [{
+      provide: 'lang',
+      useValue: req.params.lang
+    }, {
+      provide: 'baseHref',
+      useValue: `/${req.params.lang}`
+    }]
+  });
 });
 
 // Start up the Node server
