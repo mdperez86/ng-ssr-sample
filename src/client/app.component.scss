@@ -3,3 +3,25 @@ h1 {
   text-transform: uppercase;
   color: red;
 }
+nav {
+  a {
+    background-color: #b6e8ff;
+    border-radius: .5em;
+    padding: .2em;
+    margin: 0 .1em;
+    text-decoration: none;
+    &:visited,
+    &:active {
+      text-decoration: none;
+    }
+    &.active {
+      color: #ffffff;
+      background-color: #000c77;
+    }
+  }
+  &.lang-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+}

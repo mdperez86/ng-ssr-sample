@@ -1,7 +1,14 @@
-<h1>This is rendered on server side</h1>
-<nav>
-  <a routerLink="/" routerLinkActive="active">{{ 'Static' | i18n }}</a>
-  <a routerLink="/async" routerLinkActive="active">{{ 'Async' | i18n }}</a>
+<h1>{{ 'TITLE' | i18n: ["AppComponent", platform] }}</h1>
+<nav class="lang-menu">
+  <a href="/es-cl" routerLinkActive="active">Español</a>
+  <a href="/en-us" routerLinkActive="active">English</a>
 </nav>
-<span>{{ 'Hi' | i18n }}</span>
+<nav>
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    {{ 'Static' | i18n }}
+  </a>
+  <a routerLink="/async" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    {{ 'Async' | i18n }}
+  </a>
+</nav>
 <router-outlet></router-outlet>

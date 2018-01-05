@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule, BrowserTransferStateModule, TransferState } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { PipeModule } from './pipes/pipe.module';
 import { StaticModule } from './static/static.module';
 import { I18nService } from './services/i18n.service';
 import { I18nPipe } from './pipes/i18n.pipe';
@@ -12,15 +13,15 @@ import { LANG, BASE_HREF } from '../shared/transfer-state.keys';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    I18nPipe
+    AppComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-ssr-sample' }),
     BrowserTransferStateModule,
     HttpClientModule,
     AppRoutingModule,
-    StaticModule
+    StaticModule,
+    PipeModule
   ],
   providers: [
     I18nService,

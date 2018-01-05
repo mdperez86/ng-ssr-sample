@@ -30,8 +30,16 @@ export class I18nService {
     }
   }
 
-  get(key: string): string {
+  get(key: string, args?: string[]): string {
     const i18n = this.ts.get(I18N, null);
-    return i18n && i18n.hasOwnProperty(key) ? i18n[key] : key;
+    return i18n && i18n.hasOwnProperty(key) ?
+      this.parseValue(i18n[key], args || []) : key;
+  }
+
+  private parseValue(value: string, args: string[]) {
+    args.forEach((v, i) => {
+      value = value.replace(`{${i}}`, v);
+    });
+    return value;
   }
 }

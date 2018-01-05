@@ -24,16 +24,12 @@ import { ngExpressEngine } from '@nguniversal/express-engine';
 // Import module map for lazy loading
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
-import * as ejs from 'ejs';
-
 app.engine('html', ngExpressEngine({
   bootstrap: AppServerModuleNgFactory,
   providers: [
     provideModuleMap(LAZY_MODULE_MAP)
   ]
 }));
-
-// app.engine('html', ejs.__express);
 
 app.set('view engine', 'html');
 app.set('views', join(DIST_FOLDER, 'client'));

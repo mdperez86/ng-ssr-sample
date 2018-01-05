@@ -1,5 +1,8 @@
 {
   "Async": "Asíncrono",
-  "Hi": "Hola",
-  "Static": "Estático"
+  "Static": "Estático",
+  "TITLE": "'{0}' renderizado en la plataforma '{1}'",
+  "STATIC_TITLE": "StaticComponent renderizado en el servidor",
+  "ASYNC_TITLE": "AsyncComponent renderizado en el servidor",
+  "SERVER_DATE": "Fecha del servidor"
 }

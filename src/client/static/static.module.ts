@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StaticComponent } from './static.component';
+import { PipeModule } from '../pipes/pipe.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    PipeModule
   ],
-  declarations: [StaticComponent],
+  declarations: [
+    StaticComponent
+  ],
   exports: [StaticComponent]
 })
 export class StaticModule { }

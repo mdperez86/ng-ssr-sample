@@ -1,5 +1,6 @@
 {
-  "Async": "Async",
-  "Hi": "Hello",
-  "Static": "Static"
+  "TITLE": "'{0}' rendered on '{1}'",
+  "STATIC_TITLE": "StaticComponent rendered on the server",
+  "ASYNC_TITLE": "AsyncComponent rendered on the server",
+  "SERVER_DATE": "Server date"
 }
